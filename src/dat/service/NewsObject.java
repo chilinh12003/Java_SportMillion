@@ -13,7 +13,7 @@ public class NewsObject implements java.io.Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public Integer NewsID = 0;
+	public int NewsID = 0;
 	/**
 	 * Nội dung của bản tin
 	 */
@@ -39,12 +39,12 @@ public class NewsObject implements java.io.Serializable
 	 * Lấy số MT bắn xuống cho khách hàng
 	 * @return
 	 */
-	public Integer MTCount()
+	public int MTCount()
 	{
 		if(Content == null)
 			return 0;
-		Integer MTLength = Content.length();
-		Integer Count = MTLength / 160;
+		int MTLength = Content.length();
+		int Count = MTLength / 160;
 		if(MTLength % 160 != 0)
 			Count++;
 		

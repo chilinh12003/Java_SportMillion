@@ -17,17 +17,17 @@ public class SubscriberObject
 	public Date RenewChargeDate = null;
 	public Date RetryChargeDate = null;
 
-	public Integer RetryChargeCount = 0;
+	public int RetryChargeCount = 0;
 
-	public Integer ChannelTypeID = 0;
-	public Integer StatusID = 0;
-	public Integer PID = 0;
-	public Integer MOByDay = 0;
-	public Integer ChargeMark = 0;
-	public Integer WeekMark = 0;
-	public Integer CodeByDay = 0;
-	public Integer TotalCode = 0;
-	public Integer MatchID = 0;
+	public int ChannelTypeID = 0;
+	public int StatusID = 0;
+	public int PID = 0;
+	public int MOByDay = 0;
+	public int ChargeMark = 0;
+	public int WeekMark = 0;
+	public int CodeByDay = 0;
+	public int TotalCode = 0;
+	public int MatchID = 0;
 	public String AnswerKQ = "";
 	public String AnswerBT = "";
 	public String AnswerGB = "";
@@ -35,16 +35,16 @@ public class SubscriberObject
 	public String AnswerTV = "";
 	public Date LastUpdate = null;
 	public Boolean IsNotify = true;
-	public Integer OrderID = 0;
+	public int OrderID = 0;
 	public Date CofirmDeregDate = null;
 	public Date NotifyDate = null;
 
 	// các thông tin khi Vinaphone goi API
-	public Integer AppID = 0;
+	public int AppID = 0;
 	public String AppName = "";
 	public String UserName = "";
 	public String IP = "";
-	public Integer PartnerID = 0;
+	public int PartnerID = 0;
 
 	/**
 	 * Ngày hủy dịch vụ - nếu đối tượng convert từ table UnSub

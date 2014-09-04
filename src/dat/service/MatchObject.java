@@ -7,7 +7,7 @@ import db.define.MyTableModel;
 
 public class MatchObject
 {
-	public Integer MatchID = 0;
+	public int MatchID = 0;
 	public String TeamName1 = "";
 	public String TeamName2 = "";
 	public Date PlayDate = null;
@@ -19,8 +19,8 @@ public class MatchObject
 	public String AnswerGB = "";
 	public String AnswerTS = "";
 	public String AnswerTV = "";
-	public Integer StatusID  = 0;
-	public Integer Priority = 0;
+	public int StatusID  = 0;
+	public int Priority = 0;
 	public boolean IsCompute = false;
 	
  	public boolean IsNull()

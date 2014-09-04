@@ -10,10 +10,10 @@ import db.define.MyTableModel;
 public class AnswerObject
 {
 	public String MSISDN = "";
-	public Integer PID = 0;
-	public Integer ChargeMark = 0;
-	public Integer WeekMark = 0;
-	public Integer MatchID = 0;
+	public int PID = 0;
+	public int ChargeMark = 0;
+	public int WeekMark = 0;
+	public int MatchID = 0;
 	public String AnswerKQ = "";
 	public String AnswerBT = "";
 	public String AnswerGB = "";
@@ -21,7 +21,7 @@ public class AnswerObject
 	public String AnswerTV = "";
 	public Date LastUpdate = null;
 
-	public Integer OrderID = 0;
+	public int OrderID = 0;
 	public Boolean IsCompute = false;
 	public Date ComputeDate = null;
 
