@@ -25,6 +25,11 @@ public class AnswerObject
 	public Boolean IsCompute = false;
 	public Date ComputeDate = null;
 
+	/**
+	 * CHo biết thuê bao này đã hủy đăng ký hay chưa
+	 */
+	public boolean IsDeReg = true;
+	
 	public boolean IsNull()
 	{
 		if (MSISDN == null || MSISDN.equalsIgnoreCase(""))
@@ -74,6 +79,14 @@ public class AnswerObject
 			if (mTable.GetValueAt(0, "ComputeDate") != null)
 				mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(0, "ComputeDate").toString());
 
+			if (mTable.GetValueAt(0, "IsDeReg") == null)
+			{
+				mObject.IsDeReg = true;
+			}
+			else
+			{
+				mObject.IsDeReg = false;
+			}
 			return mObject;
 		}
 		catch (Exception ex)
@@ -124,6 +137,16 @@ public class AnswerObject
 
 				if (mTable.GetValueAt(i, "ComputeDate") != null)
 					mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(i, "ComputeDate").toString());
+				
+				if (mTable.GetValueAt(i, "IsDeReg") == null)
+				{
+					mObject.IsDeReg = true;
+				}
+				else
+				{
+					mObject.IsDeReg = false;
+				}
+				
 				mList.add(mObject);
 			}
 			return mList;
