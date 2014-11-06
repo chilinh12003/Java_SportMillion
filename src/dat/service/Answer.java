@@ -8,11 +8,10 @@ import db.define.DBConfig;
 import db.define.MyTableModel;
 public class Answer
 {
-	
-	
+
 	public MyExecuteData mExec;
 	public MyGetData mGet;
-	
+
 	public Answer(DBConfig mConfigObj) throws Exception
 	{
 		try
@@ -25,10 +24,13 @@ public class Answer
 			throw ex;
 		}
 	}
-	
+
 	/**
-	 * @param Type : Cách thức lấy dữ liệu
-	 * <p>Type = 1: lấy thông tin chi tiết 1 record Para_1 = AnswerID</p>
+	 * @param Type
+	 *            : Cách thức lấy dữ liệu
+	 *            <p>
+	 *            Type = 1: lấy thông tin chi tiết 1 record Para_1 = AnswerID
+	 *            </p>
 	 * @param Para_1
 	 * @return
 	 * @throws Exception
@@ -38,24 +40,26 @@ public class Answer
 	{
 		try
 		{
-			String Arr_Name[] ={"Type", "Para_1"};
-			String Arr_Value[] ={Integer.toString(Type), Para_1};
-			
+			String Arr_Name[] = {"Type", "Para_1"};
+			String Arr_Value[] = {Integer.toString(Type), Para_1};
+
 			return mGet.GetData_Pro("Sp_Answer_Select", Arr_Name, Arr_Value);
 		}
-		catch(SQLException ex)
+		catch (SQLException ex)
 		{
 			throw ex;
 		}
-		catch(Exception ex)
+		catch (Exception ex)
 		{
 			throw ex;
 		}
 	}
-	
+
 	/**
-	 * @param Type : Cách thức lấy dữ liệu
-	 * <p>Type = 0: Lay du lieu mẫu</p>
+	 * @param Type
+	 *            : Cách thức lấy dữ liệu <br/>
+	 *            Type = 0: Lay du lieu mẫu <br/>
+	 *            Type = 6: Lấy chi tiết 1 Record mới nhất
 	 * @param Para_1
 	 * @return
 	 * @throws Exception
@@ -65,21 +69,37 @@ public class Answer
 	{
 		try
 		{
-			String Arr_Name[] ={"Type"};
-			String Arr_Value[] ={Integer.toString(Type)};
-			
+			String Arr_Name[] = {"Type"};
+			String Arr_Value[] = {Integer.toString(Type)};
+
 			return mGet.GetData_Pro("Sp_Answer_Select", Arr_Name, Arr_Value);
 		}
-		catch(SQLException ex)
+		catch (SQLException ex)
 		{
 			throw ex;
 		}
-		catch(Exception ex)
+		catch (Exception ex)
 		{
 			throw ex;
 		}
 	}
-	
+
+	public boolean Truncate() throws Exception, SQLException
+	{
+		try
+		{
+			return mExec.Execute_Query(" TRUNCATE TABLE Answer ");
+		}
+		catch (SQLException ex)
+		{
+			throw ex;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+
 	/**
 	 * 
 	 * @param Type
@@ -99,12 +119,13 @@ public class Answer
 	 * @throws Exception
 	 * @throws SQLException
 	 */
-	public MyTableModel Select(int Type, String Para_1, String Para_2, String Para_3, String Para_4, String Para_5) throws Exception, SQLException
+	public MyTableModel Select(int Type, String Para_1, String Para_2, String Para_3, String Para_4, String Para_5)
+			throws Exception, SQLException
 	{
 		try
 		{
-			String Arr_Name[] = { "Type", "Para_1", "Para_2", "Para_3", "Para_4", "Para_5", };
-			String Arr_Value[] = { Integer.toString(Type), Para_1, Para_2, Para_3, Para_4, Para_5 };
+			String Arr_Name[] = {"Type", "Para_1", "Para_2", "Para_3", "Para_4", "Para_5",};
+			String Arr_Value[] = {Integer.toString(Type), Para_1, Para_2, Para_3, Para_4, Para_5};
 
 			return mGet.GetData_Pro("Sp_Answer_Select", Arr_Name, Arr_Value);
 		}
@@ -135,8 +156,8 @@ public class Answer
 	{
 		try
 		{
-			String[] Arr_Name = { "Type", "XMLContent" };
-			String[] Arr_Value = { Integer.toString(Type), XMLContent };
+			String[] Arr_Name = {"Type", "XMLContent"};
+			String[] Arr_Value = {Integer.toString(Type), XMLContent};
 			return mExec.Execute_Pro("Sp_Answer_Update", Arr_Name, Arr_Value);
 		}
 		catch (Exception ex)
@@ -145,16 +166,15 @@ public class Answer
 		}
 	}
 
-	 
-	public boolean Insert(int Type, String XMLContent) throws Exception,SQLException
+	public boolean Insert(int Type, String XMLContent) throws Exception, SQLException
 	{
 		try
 		{
-			String[] Arr_Name = { "Type", "XMLContent" };
-			String[] Arr_Value = { Integer.toString(Type), XMLContent };
+			String[] Arr_Name = {"Type", "XMLContent"};
+			String[] Arr_Value = {Integer.toString(Type), XMLContent};
 			return mExec.Execute_Pro("Sp_Answer_Insert", Arr_Name, Arr_Value);
 		}
-		catch(SQLException ex)
+		catch (SQLException ex)
 		{
 			throw ex;
 		}
@@ -163,5 +183,5 @@ public class Answer
 			throw ex;
 		}
 	}
-	
+
 }

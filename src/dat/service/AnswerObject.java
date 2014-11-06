@@ -29,13 +29,12 @@ public class AnswerObject
 	 * CHo biết thuê bao này đã hủy đăng ký hay chưa
 	 */
 	public boolean IsDeReg = true;
-	
+
 	public boolean IsNull()
 	{
 		if (MSISDN == null || MSISDN.equalsIgnoreCase(""))
 			return true;
-		else
-			return false;
+		else return false;
 	}
 
 	public static AnswerObject Convert(MyTableModel mTable) throws Exception
@@ -74,19 +73,25 @@ public class AnswerObject
 			mObject.IsCompute = Boolean.parseBoolean(mTable.GetValueAt(0, "IsCompute").toString());
 
 			if (mTable.GetValueAt(0, "LastUpdate") != null)
-				mObject.LastUpdate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(0, "LastUpdate").toString());
+				mObject.LastUpdate = MyConfig.Get_DateFormat_InsertDB().parse(
+						mTable.GetValueAt(0, "LastUpdate").toString());
 
 			if (mTable.GetValueAt(0, "ComputeDate") != null)
-				mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(0, "ComputeDate").toString());
+				mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(
+						mTable.GetValueAt(0, "ComputeDate").toString());
 
-			if (mTable.GetValueAt(0, "IsDeReg") == null)
+			if (mTable.CheckColumnsExists("IsDeReg"))
 			{
-				mObject.IsDeReg = true;
+				if (mTable.GetValueAt(0, "IsDeReg") == null)
+				{
+					mObject.IsDeReg = true;
+				}
+				else
+				{
+					mObject.IsDeReg = false;
+				}
 			}
-			else
-			{
-				mObject.IsDeReg = false;
-			}
+
 			return mObject;
 		}
 		catch (Exception ex)
@@ -133,20 +138,25 @@ public class AnswerObject
 				mObject.IsCompute = Boolean.parseBoolean(mTable.GetValueAt(i, "IsCompute").toString());
 
 				if (mTable.GetValueAt(i, "LastUpdate") != null)
-					mObject.LastUpdate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(i, "LastUpdate").toString());
+					mObject.LastUpdate = MyConfig.Get_DateFormat_InsertDB().parse(
+							mTable.GetValueAt(i, "LastUpdate").toString());
 
 				if (mTable.GetValueAt(i, "ComputeDate") != null)
-					mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(mTable.GetValueAt(i, "ComputeDate").toString());
+					mObject.ComputeDate = MyConfig.Get_DateFormat_InsertDB().parse(
+							mTable.GetValueAt(i, "ComputeDate").toString());
 				
-				if (mTable.GetValueAt(i, "IsDeReg") == null)
+				if (mTable.CheckColumnsExists("IsDeReg"))
 				{
-					mObject.IsDeReg = true;
+					if (mTable.GetValueAt(i, "IsDeReg") == null)
+					{
+						mObject.IsDeReg = true;
+					}
+					else
+					{
+						mObject.IsDeReg = false;
+					}
 				}
-				else
-				{
-					mObject.IsDeReg = false;
-				}
-				
+
 				mList.add(mObject);
 			}
 			return mList;
@@ -171,11 +181,11 @@ public class AnswerObject
 		Calendar mCal_LastUpdate = Calendar.getInstance();
 
 		mCal_LastUpdate.setTime(LastUpdate);
-		if (mCal_Current.get(Calendar.YEAR) == mCal_LastUpdate.get(Calendar.YEAR) && mCal_Current.get(Calendar.MONTH) == mCal_LastUpdate.get(Calendar.MONTH)
+		if (mCal_Current.get(Calendar.YEAR) == mCal_LastUpdate.get(Calendar.YEAR)
+				&& mCal_Current.get(Calendar.MONTH) == mCal_LastUpdate.get(Calendar.MONTH)
 				&& mCal_Current.get(Calendar.DATE) == mCal_LastUpdate.get(Calendar.DATE))
 			return true;
-		else
-			return false;
+		else return false;
 	}
 
 }
