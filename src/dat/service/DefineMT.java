@@ -95,6 +95,7 @@ public class DefineMT
 		 * Gửi Y trong khi chưa gửi Confirm trước đó
 		 */
 		DeregNotSendConfirm(305),
+		
 
 		/**
 		 * Hủy khi gia hạn không thành công
@@ -291,6 +292,8 @@ public class DefineMT
 		}
 		catch (SQLException ex)
 		{
+			int s = ex.getErrorCode();
+			String t = ex.getSQLState();
 			throw ex;
 		}
 		catch (Exception ex)

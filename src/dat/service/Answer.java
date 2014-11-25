@@ -88,7 +88,7 @@ public class Answer
 	{
 		try
 		{
-			return mExec.Execute_Query(" TRUNCATE TABLE Answer ");
+			return mExec.Execute_Query(" DELETE FROM ANSWER ");
 		}
 		catch (SQLException ex)
 		{
